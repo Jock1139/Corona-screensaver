@@ -1,0 +1,41 @@
+import turtle
+import random
+
+t = turtle.Turtle()
+s = turtle.Screen()
+t.speed(0)
+t.pensize(1)
+s.bgcolor("black")
+a = 0
+b = 0
+
+def move(x:int, y:int):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+
+def hexagon():
+    for i in range(210):
+        global a 
+        global b 
+        t.forward(a)
+        t.right(b)
+        a+=1
+        b+=3
+        print(a)
+        print(b)
+        if (b==210):
+            a = 0
+            b = 0
+            
+
+for i in range(210):
+    t.color("green")
+    x = random.randint(-300, 200)
+    y = random.randint(-250, 200)
+    t.setheading(random.randint(0,360))
+    move(x, y)
+    t.hideturtle()
+    hexagon()
+
+turtle.done()
